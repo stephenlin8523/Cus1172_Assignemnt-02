@@ -1,37 +1,103 @@
-<!DOCTYPE html5>
 <html>
 <head>
-<meta charset="UTF-8">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-<link rel = "stylesheet" href = "todo.css">
-<script src = "todo.js"> </script>
-<title>To do list</title>
+<title>Task List</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<style>    /* styles added to different tags*/
+* {
+   margin : 0;
+   padding: 0;
+   outline: none;
+   box-sizing: border-box;
+   }
+   form{   /*style added to form attributes*/
+   margin-top: 30px;
+   width: 300px;
+   position: relative;
+   left: 50%;
+   padding: 10px 30px;
+   border: 1px solid black;
+   transform: translateX(-50%);
+   }
+   .label {   /*styles for label class*/
+   font-size: 1.2rem;
+   margin-top: 3px;
+   margin-bottom: 3px;
+   }
+   h1 {      /*styles for heading*/
+   margin-bottom: 10px;
+   font-size: 1.8rem;
+   }
+   #add_task{     /*styles for addtask id*/
+   margin-top: 5px;
+   margin-bottom: 3px;
+   padding: 3px 7px;
+   }
+   #tasks{    /*styles for tasks id*/
+   margin: 20px 30px;
+   }
+   #priorities{      /*styles added to priorities id*/
+   font-size: 1rem;
+   margin-bottom: 10px;
+   }
+   #priorities div{
+   width: 12px;
+   height: 12px;
+   border-radius: 6px;
+   display: inline-block;
+   }
+   ul {   /*styles for unordered list*/
+   list-style-type: none;
+   }
+   li {
+   font-size: 1.3rem;
+   }
+   li input[type="checkbox"]{
+   margin-right: 10px;
+   }
+   .completed {
+   text-decoration: line-through;
+   }
+   .remove_task {
+   margin-left: 10px;
+   border: none;
+   background: none;
+   font-size: 1.2rem;
+   color: red;
+   }
+</style>
 </head>
 
-<body>
-<h1>To do List</h1>
-<img src = "https://image.flaticon.com/icons/png/512/1567/1567073.png"/>
-<ul id = "task_list">
-
-</ul>
-<form id = "new-task">New Task
-<input class = "task-title" id = "task-title" autocomplete="off" autofocus placeholder="New Task" type = "text">
-
-<label for = "task-priority">Task Priority</label>
-<select name = "task-priority" id = "task-priority">
-<option value="low">low</option>
-<option value="med">med</option>
-<option value="high">high</option>
+<body>   <!--body started-->
+<form>     <!--form element added-->
+<h1>Add New Task</h1>
+<label class="label" for="title">Title </label><br />
+<input id="title" required></input><br />
+<label class="label">Priority</label><br />
+<select>
+<option value = "low"> Low</option>
+<option value = "medium">Medium</option>
+<option value = "high">High</option>
 </select>
-
-<label for = "task-status">Task Status</label>
-<input class = "task-status" name = "task-status" type = "radio" value = "pending"> Pending
-<input class = "task-status" name = "task-status" type = "radio" value = "completed"> Completed
-
-<input id = "submit" type = "submit">
+</br/>
+<label class="label"> Status </label>   <!--Label added-->
+<div>
+<input type="radio" id="pending" name="status" value="pending" checked>   <!--radio button-->
+<label for="pending">Pending</label>
+<input type="radio" id="completed" name="status" value="completed">
+<label for="completed">Completed</label>
+</div>
+<button id="add_task">Add Task</button>   <!--button added-->
 </form>
+<div id="tasks">
+<h1>All Tasks</h1>
+<div id="priorities">
+<div style="background: red"></div> High Priority
+<div style="background: orange"></div> Medium Priority
+<div style="background: green"></div> Low Priority</div>
+<ul id="all_tasks">
+<ul>
+</div>
+<script src="script.js"></script>
 </body>
+
 </html>
